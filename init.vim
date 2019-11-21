@@ -15,6 +15,19 @@ Plug 'dense-analysis/ale'
 " Intero
 Plug 'parsonsmatt/intero-neovim'
 
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install
+" script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" {{{
+  set ttimeout
+  set ttimeoutlen=0
+  nnoremap <silent> <leader><space> :Files<CR>
+  nnoremap <silent> <leader>b :Buffers<CR>
+" }}}
+
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 " ----- neovimhaskell/haskell-vim -----
@@ -27,17 +40,21 @@ let g:haskell_indent_case_alternative = 1
 " Only next under 'let' if there's an equals sign
 let g:haskell_indent_let_no_in = 0
 
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+" Styling
+syntax on
+filetype plugin indent on
+let g:haskell_enable_quantification = 0
+let g:haskell_enable_recursivedo = 0
+let g:haskell_enable_arrowsyntax = 0
+let g:haskell_enable_pattern_synonyms = 0
+let g:haskell_enable_typeroles = 0
+let g:haskell_enable_static_pointers = 0
+let g:haskell_backpack = 0
+let g:haskell_classic_highlighting = 1
 
 " ----- hindent & stylish-haskell -----
 " Indenting on save is too aggressive for me
-let g:hindent_on_save = 0
+let g:hindent_on_save = 1
 " Helper function, called below with mappings
 function! HaskellFormat(which) abort
   if a:which ==# 'hindent' || a:which ==# 'both'
@@ -62,8 +79,6 @@ augroup END
 
 " ----- w0rp/ale -----
 let g:ale_fixers = {'haskell': ['hlint']}
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
 " ----- parsonsmatt/intero-neovim -----
 " Prefer starting Intero manually (faster startup times)
 let g:intero_start_immediately = 0
