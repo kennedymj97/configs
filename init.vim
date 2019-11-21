@@ -40,18 +40,6 @@ let g:haskell_indent_case_alternative = 1
 " Only next under 'let' if there's an equals sign
 let g:haskell_indent_let_no_in = 0
 
-" Styling
-syntax on
-filetype plugin indent on
-let g:haskell_enable_quantification = 0
-let g:haskell_enable_recursivedo = 0
-let g:haskell_enable_arrowsyntax = 0
-let g:haskell_enable_pattern_synonyms = 0
-let g:haskell_enable_typeroles = 0
-let g:haskell_enable_static_pointers = 0
-let g:haskell_backpack = 0
-let g:haskell_classic_highlighting = 1
-
 " ----- hindent & stylish-haskell -----
 " Indenting on save is too aggressive for me
 let g:hindent_on_save = 1
