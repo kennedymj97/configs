@@ -1,7 +1,8 @@
 call plug#begin('~/.local/share/nvim/site/plugged')
 
 " Change the color of the statusline 
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 
 " Syntax highlighting and Indentation for Haskell
 Plug 'neovimhaskell/haskell-vim'
@@ -27,8 +28,13 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 Plug 'scrooloose/nerdtree'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
+
+set background=dark
+colorscheme palenight
+let g:airline_theme = "palenight"
 
 " ----- neovimhaskell/haskell-vim -----
 " Align 'then' two spaces after 'if'
@@ -42,7 +48,7 @@ let g:haskell_indent_let_no_in = 0
 
 " ----- hindent & stylish-haskell -----
 " Indenting on save is too aggressive for me
-let g:hindent_on_save = 1
+let g:hindent_on_save = 0
 " Helper function, called below with mappings
 function! HaskellFormat(which) abort
   if a:which ==# 'hindent' || a:which ==# 'both'
@@ -65,8 +71,11 @@ augroup haskellStylish
   au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
 augroup END
 
+autocmd BufWritePost *.hs :call HaskellFormat('both')
+
 " ----- w0rp/ale -----
 let g:ale_fixers = {'haskell': ['hlint']}
+let g:ale_linters = {'haskell': ['hlint']}
 " ----- parsonsmatt/intero-neovim -----
 " Prefer starting Intero manually (faster startup times)
 let g:intero_start_immediately = 0
