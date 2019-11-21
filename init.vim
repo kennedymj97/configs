@@ -62,6 +62,8 @@ augroup END
 
 " ----- w0rp/ale -----
 let g:ale_fixers = {'haskell': ['hlint']}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 " ----- parsonsmatt/intero-neovim -----
 " Prefer starting Intero manually (faster startup times)
 let g:intero_start_immediately = 0
