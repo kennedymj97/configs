@@ -20,6 +20,8 @@ Plug 'parsonsmatt/intero-neovim'
 " script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'elmcast/elm-vim'
 " {{{
   set ttimeout
   set ttimeoutlen=0
