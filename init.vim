@@ -34,6 +34,9 @@ Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
+let maplocalleader = "-"
+let mapleader = "\\"
+
 set tabstop=2 shiftwidth=2 expandtab
 
 set background=dark
