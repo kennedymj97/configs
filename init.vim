@@ -22,6 +22,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'elmcast/elm-vim'
+
+Plug 'sheerun/vim-polyglot'
 " {{{
   set ttimeout
   set ttimeoutlen=0
