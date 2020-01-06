@@ -24,6 +24,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'elmcast/elm-vim'
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " {{{
   set ttimeout
   set ttimeoutlen=0
