@@ -12,7 +12,6 @@ cd configs
 ln -s $(pwd)/* ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 ```
-Note: the last line fixes the awful colors of directories when using ls.
 
 Install node:
 
@@ -23,7 +22,7 @@ Install rust:
 Just go to the [install page](www.rust-lang.org/install) on the rust site and follow the instructions.
 
 ### Neovim (stable release)
-Note: when moving to wsl2 will likely just be able to install the appimage directly, see the neovim repo for instructions.
+*Note: when moving to wsl2 will likely just be able to install the appimage directly, see the neovim repo for instructions.*
 ```shell
 cd ~
 mkdir -p appimages
