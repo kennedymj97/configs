@@ -70,3 +70,21 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 cargo install ripgrep
 ```
+
+## Editing config
+
+### Vim and terminal color scheme
+Type `base16_` and autocomplete to see all the options then input the desired option
+
+### tmux color scheme
+- Select the desired color scheme from the [base16-tmux repository](https://github.com/mattdavis90/base16-tmux/tree/master/colors). 
+- Download this file into the tmux folder and update the bottom line of the tmux.conf file.
+- Delete the tmux folder from ~/.config/tmux
+```shell
+rm -r ~/.config/tmux
+```
+- Restore the symlink, the following is from the root of this repo
+```shell
+mkdir ~/.config/tmux
+ln -s $(pwd)/tmux/* ~/.config/tmux/
+```
