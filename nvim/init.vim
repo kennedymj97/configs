@@ -99,7 +99,7 @@ set undofile
 " fzf custom
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
-noremap <leader>s :Rg
+noremap <leader>s :Rg<CR>
 
 inoremap <C-j> <Esc>
 

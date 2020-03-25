@@ -12,6 +12,7 @@ cd configs
 ln -s $(pwd)/* ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 ```
+Note: the last line fixes the awful colors of directories when using ls.
 
 Install node:
 
@@ -27,9 +28,6 @@ Note: when moving to wsl2 will likely just be able to install the appimage direc
 cd ~
 mkdir -p appimages
 cd appimages
-cd ~
-mkdir -p appimages
-cd appimages
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
@@ -42,8 +40,6 @@ cd ~
 echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
-cd ~/.config/
-git clone https://github.com/kennedymj97/nvim.git
 ```
 Open nvim and run :PlugInstall
 
@@ -62,6 +58,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 ```
 
 Open a new shell and type base16_gruvbox-dark-hard (or another theme)
+
+The ls command after changing style may have directories that are very hard to read. To fix this add the following to ~/.bashrc:
+
+```bash
+export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g")
+```
 
 ### Fuzzy finder
 Note: requires rust to be installed first (for ripgrep installation)
@@ -88,3 +90,4 @@ rm -r ~/.config/tmux
 mkdir ~/.config/tmux
 ln -s $(pwd)/tmux/* ~/.config/tmux/
 ```
+
