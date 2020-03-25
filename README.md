@@ -1,4 +1,4 @@
-# Configuration
+#Configuration
 
 ## Initial Setup (Ubuntu)
 To start with run:
@@ -41,7 +41,14 @@ echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
+*Install the plugins:*
 Open nvim and run :PlugInstall
+
+*Install rust-analyzer for coc:*
+```shell
+cargo install cargo-watch
+```
+Open nvim and run :CocInstall coc-rust-analyzer
 
 ### Terminal (and vim) base16 styling
 ```shell
