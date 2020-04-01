@@ -11,18 +11,31 @@ git clone https://github.com/kennedymj97/configs.git
 cd configs
 ln -s $(pwd)/* ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
+git config --global user.email "<enter email here>"
+git config --global user.name "<enter name here>"
 ```
 
 Install node:
 
-1. Go to the [node website](nodejs.org/en/) and check the latest stable version.
+1. Go to the [node website](https://www.nodejs.org/en/) and check the latest stable version.
 1. Go to the [nodesource repo](https://github.com/nodesource/distributions#deb) and follow instructions to install the latest version.
 
 Install rust:
-Just go to the [install page](www.rust-lang.org/install) on the rust site and follow the instructions.
+Just go to the [install page](https://www.rust-lang.org/tools/install) on the rust site and follow the instructions.
 
 ### Neovim (stable release)
-*Note: when moving to wsl2 will likely just be able to install the appimage directly, see the neovim repo for instructions.*
+*In WSL1 you cannot install appimages so you have to follow the alternative steps*
+Installing normally:
+```shell
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod +x nvim.appimage
+mv ./nvim.appimage /usr/bin
+echo 'alias vim="nvim"' >> ~/.bash_aliases
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir ~/.local/share/nvim/site/plugged
+```
+
+Installing in WSL1:
 ```shell
 cd ~
 mkdir -p appimages
