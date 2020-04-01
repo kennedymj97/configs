@@ -1,4 +1,4 @@
-#Configuration
+# Configuration
 
 ## Initial Setup (Ubuntu)
 To start with run:
