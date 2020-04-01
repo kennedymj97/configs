@@ -24,7 +24,7 @@ Install rust:
 Just go to the [install page](https://www.rust-lang.org/tools/install) on the rust site and follow the instructions.
 
 ### Neovim (stable release)
-*In WSL1 you cannot install appimages so you have to follow the alternative steps*
+*In WSL1 you cannot install appimages so you have to follow the alternative steps.*  
 Installing normally:
 ```shell
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
