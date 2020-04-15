@@ -8,8 +8,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
 " Fuzzy finder
-Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
@@ -101,8 +99,6 @@ set undofile
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 noremap <leader>s :Rg<CR>
-
-inoremap <C-j> <Esc>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
