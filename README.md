@@ -6,14 +6,17 @@ To start with run:
 ```shell
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install fish
+chsh -s /usr/bin/fish
 sudo apt install build-essential
 git clone https://github.com/kennedymj97/configs.git
 cd configs
-ln -s $(pwd)/nvim/ ~/.config/
-ln -s $(pwd)/tmux/ ~/.config/
+ln -s (pwd)/nvim/ ~/.config/
+ln -s (pwd)/tmux/ ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 rm ~/.gitconfig
-ln -s $(pwd)/gitconfig ~/.gitconfig
+ln -s (pwd)/gitconfig ~/.gitconfig
+ln -s (pwd)/config.fish ~/.config/fish/config.fish
 ```
 
 Install node:
