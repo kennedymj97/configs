@@ -71,22 +71,7 @@ Open nvim and run :CocInstall coc-rust-analyzer
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 ```
 
-Add following lines to ~/.bashrc
-```bash
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-            eval "$("$BASE16_SHELL/profile_helper.sh")"
-```
-
 Open a new shell and type base16_gruvbox-dark-hard (or another theme)
-
-The ls command after changing style may have directories that are very hard to read. To fix this add the following to ~/.bashrc:
-
-```bash
-export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g")
-```
 
 ### Fuzzy finder
 Note: requires rust to be installed first (for ripgrep installation)
