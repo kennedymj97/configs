@@ -1,0 +1,6 @@
+[user]
+	email = kennedymj97@gmail.com
+	name = Matthew Kennedy
+
+[alias]
+	adog = log --all --decorate --oneline --graph

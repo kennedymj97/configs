@@ -9,10 +9,11 @@ sudo apt-get upgrade
 sudo apt install build-essential
 git clone https://github.com/kennedymj97/configs.git
 cd configs
-ln -s $(pwd)/* ~/.config/
+ln -s $(pwd)/nvim/ ~/.config/
+ln -s $(pwd)/tmux/ ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
-git config --global user.email "<enter email here>"
-git config --global user.name "<enter name here>"
+rm ~/.gitconfig
+ln -s $(pwd)/gitconfig ~/.gitconfig
 ```
 
 Install node:
