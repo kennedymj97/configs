@@ -20,6 +20,9 @@ Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 
+" Latex support
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " =================================================

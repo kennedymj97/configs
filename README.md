@@ -93,6 +93,12 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 cargo install ripgrep
 ```
 
+### Latex
+```shell
+sudo apt install texlive-latex-extra
+sudo apt install latexmk
+```
+
 ## Editing config
 
 ### Vim and terminal color scheme
