@@ -40,7 +40,6 @@ Installing normally:
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 mv ./nvim.appimage /usr/bin
-echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
@@ -59,7 +58,6 @@ mkdir -p bin
 cd bin
 ln -s ../appimages/nvim/AppRun nvim
 cd ~
-echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
