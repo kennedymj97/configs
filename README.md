@@ -6,8 +6,14 @@ To start with run:
 ```shell
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
 sudo apt-get install fish
 chsh -s /usr/bin/fish
+```
+
+Restart the terminal to start using fish and continue:
+```shell
 sudo apt install build-essential
 git clone https://github.com/kennedymj97/configs.git
 cd configs
@@ -34,7 +40,6 @@ Installing normally:
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 mv ./nvim.appimage /usr/bin
-echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
@@ -48,12 +53,8 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
 mv squashfs-root nvim
+ln -s (pwd)/nvim/AppRun /usr/bin/nvim
 cd ~
-mkdir -p bin
-cd bin
-ln -s ../appimages/nvim/AppRun nvim
-cd ~
-echo 'alias vim="nvim"' >> ~/.bash_aliases
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
@@ -71,22 +72,7 @@ Open nvim and run :CocInstall coc-rust-analyzer
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 ```
 
-Add following lines to ~/.bashrc
-```bash
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-            eval "$("$BASE16_SHELL/profile_helper.sh")"
-```
-
 Open a new shell and type base16_gruvbox-dark-hard (or another theme)
-
-The ls command after changing style may have directories that are very hard to read. To fix this add the following to ~/.bashrc:
-
-```bash
-export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g")
-```
 
 ### Fuzzy finder
 Note: requires rust to be installed first (for ripgrep installation)
