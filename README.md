@@ -10,6 +10,10 @@ sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install fish
 chsh -s /usr/bin/fish
+```
+
+Restart the terminal to start using fish and continue:
+```shell
 sudo apt install build-essential
 git clone https://github.com/kennedymj97/configs.git
 cd configs
