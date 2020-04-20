@@ -53,10 +53,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
 mv squashfs-root nvim
-cd ~
-mkdir -p bin
-cd bin
-ln -s ../appimages/nvim/AppRun nvim
+ln -s (pwd)/nvim/AppRun /usr/bin/nvim
 cd ~
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
