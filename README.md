@@ -88,6 +88,14 @@ sudo apt install texlive-latex-extra
 sudo apt install latexmk
 ```
 
+## Initial Setup (Windows)
+- Enable wsl  
+- Get Ubuntu from the windows store  
+- Get windows terminal from the windows store  
+- Update the windows terminal settings so they match the profiles.json file  
+  - Look out for updates on being able to customise styling of the window  
+- Change the title bar styling using the reg file if desired  
+
 ## Editing config
 
 ### Vim and terminal color scheme
