@@ -91,7 +91,10 @@ let g:rustfmt_autosave = 1
 set background=dark
 hi Normal ctermbg=NONE
 set scrolloff=2
-set relativenumber
+
+" Hybrid line numbers
+set number relativenumber
+set nu rnu
 
 " Permanent undo
 set undodir=~/.vimdid
