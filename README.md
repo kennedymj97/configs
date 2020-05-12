@@ -22,6 +22,7 @@ ln -s (pwd)/tmux/ ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 rm ~/.gitconfig
 ln -s (pwd)/gitconfig ~/.gitconfig
+rm ~/.config/fish/config.fish
 ln -s (pwd)/config.fish ~/.config/fish/config.fish
 ```
 
