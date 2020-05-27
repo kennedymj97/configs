@@ -104,6 +104,13 @@ set undofile
 " autocmd BufRead,BufNewFile *.cpp set expandtab
 autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
 
+" Indenting
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
+
+
 " ====================================================================================
 " Hotkeys
 " ====================================================================================
