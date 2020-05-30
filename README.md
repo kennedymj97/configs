@@ -40,7 +40,7 @@ Installing normally:
 ```shell
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
-sudo mv ./nvim.appimage /usr/bin
+sudo mv ./nvim.appimage /usr/bin/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
