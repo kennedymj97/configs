@@ -34,28 +34,11 @@ Install node:
 Install rust:
 Just go to the [install page](https://www.rust-lang.org/tools/install) on the rust site and follow the instructions.
 
-### Neovim (stable release)
-*In WSL1 you cannot install appimages so you have to follow the alternative steps.*  
-Installing normally:
+### Neovim (stable release) 
 ```shell
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
 sudo mv ./nvim.appimage /usr/bin/nvim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-mkdir ~/.local/share/nvim/site/plugged
-```
-
-Installing in WSL1:
-```shell
-cd ~
-mkdir -p appimages
-cd appimages
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod +x nvim.appimage
-./nvim.appimage --appimage-extract
-mv squashfs-root nvim
-sudo ln -s (pwd)/nvim/AppRun /usr/bin/nvim
-cd ~
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/site/plugged
 ```
