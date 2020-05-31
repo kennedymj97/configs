@@ -3,9 +3,8 @@
 ## Initial Setup
 
 ### WSL2
-https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
-Open powershell as administrator and run:
+Open powershell as administrator and run ([source](https://docs.microsoft.com/en-us/windows/wsl/install-win10)):
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -15,8 +14,7 @@ Restart the computer.
 wsl --set-default-version 2
 ```
 
-Go to the windows store and install Ubuntu
-https://aka.ms/wslstore
+[Go to the windows store](https://aka.ms/wslstore) and install Ubuntu.
 
 Launch Ubuntu and follow the installation instructions. Once complete run the following commands:
 
@@ -29,8 +27,8 @@ sudo apt install build-essential
 The build essential package includes utilities needed for future installations.
 
 ### Windows Terminal
-Go to the microsoft store and install the windows terminal
-https://www.microsoft.com/store/productId/9N0DX20HK701
+[Go to the microsoft store](https://www.microsoft.com/store/productId/9N0DX20HK701) and install the windows terminal
+
 
 #### Change the default profile to WSL2
 After installing the windows terminal the default profile will probably be powershell. We want the default profile to be our WSL profile.
