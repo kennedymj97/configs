@@ -34,7 +34,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-"COC completion
+" ===== COC completion =====
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -82,21 +82,26 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+" =========================
+
 " rust settings
 let g:rustfmt_autosave = 1
 
 " ====================================================================================
 " Editor settings
 " ====================================================================================
+" Styling
 set background=dark
 hi Normal ctermbg=NONE
+
+" View will start scrolling 2 lines above bottom/top
 set scrolloff=2
 
 " Hybrid line numbers
 set number relativenumber
 set nu rnu
 
-" Permanent undo
+" Permanent undo (can undo when reopening buffer after closing)
 set undodir=~/.vimdid
 set undofile
 
@@ -113,10 +118,10 @@ set smartindent
 " ====================================================================================
 " Hotkeys
 " ====================================================================================
-" fzf custom
+" fzf custom hotkeys
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 noremap <leader>s :Rg<CR>
 
-" <leader><leader> toggles between buffers
+" <leader><leader> toggles between 2 most recently used buffers
 nnoremap <leader><leader> <c-^>

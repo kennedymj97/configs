@@ -1,4 +1,5 @@
 # Configuration
+**Note: if you are not me make sure to change the name and email in the gitconfig!**
 
 ## Initial Setup
 
