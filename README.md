@@ -85,6 +85,7 @@ ln -s (pwd)/gitconfig ~/.gitconfig
 rm ~/.config/fish/config.fish
 ln -s (pwd)/config.fish ~/.config/fish/config.fish
 ```
+On compeltion restart the terminal.
 
 ### Neovim
 If you try to install neovim through the package manager an old version is installed which is not compatible with some of the plugins. To install an up to date version of neovim ([source](https://github.com/neovim/neovim/wiki/Installing-Neovim):
