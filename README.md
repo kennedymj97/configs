@@ -27,7 +27,7 @@ sudo apt install build-essential
 The build essential package includes utilities needed for future installations.
 
 ### Windows Terminal
-[Go to the microsoft store](https://www.microsoft.com/store/productId/9N0DX20HK701) and install the windows terminal
+[Go to the microsoft store](https://aka.ms/windowsterminal) and install the windows terminal
 
 
 #### Change the default profile to WSL2
