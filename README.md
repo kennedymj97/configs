@@ -55,6 +55,8 @@ Add the following settings below defaultProfile:
 3. "launchMode": "maximized"
 4. "showTerminalTitleInTitleBar": false
 
+If using vim the default keybindings will override some of the vim keybindings, therefore it is a good idea to remove all of the keybings set by default from the array.
+
 ![windows terminal config](./images/windows-terminal-config.png)
 
 See here for further details.
