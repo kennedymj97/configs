@@ -35,3 +35,6 @@ end
 
 # add rust to path
 set PATH $HOME/.cargo/bin $PATH
+
+# add local to path
+set PATH $HOME/.local/bin $PATH
