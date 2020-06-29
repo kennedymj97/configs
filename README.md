@@ -155,8 +155,7 @@ Open nvim and run :CocInstall coc-rust-analyzer
 ### Latex
 
 ```shell
-sudo apt install texlive-latex-extra
-sudo apt install latexmk
+sudo apt install texlive-latex-extra latexmk
 ```
 
 [Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html) works great along with latex, allowing for reloading as changes are made to a pdf.
