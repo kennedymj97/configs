@@ -38,3 +38,6 @@ set PATH $HOME/.cargo/bin $PATH
 
 # add local to path
 set PATH $HOME/.local/bin $PATH
+
+# add flamegraph to path
+set PATH $HOME/tools/FlameGraph $PATH
