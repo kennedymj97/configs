@@ -107,13 +107,13 @@ mkdir ~/.local/share/nvim/site/plugged
 ```
 
 #### Installing the plugins
-Install the plugins by launching nvim and typing :PlugInstall.
-
 ##### Node.js
 My vim setup makes use of [coc.nvim](https://github.com/neoclide/coc.nvim). To use this node.js has to be installed.
 
 1. Go to the [node website](https://www.nodejs.org/en/) and check the latest stable version.
 2. Go to the [nodesource repo](https://github.com/nodesource/distributions#deb) and follow instructions to install the latest version.
+
+Install the plugins by launching nvim and typing :PlugInstall.
 
 #### Fuzzy finder (fzf)
 I mostly use [fzf](https://github.com/neoclide/coc.nvim) to open files and move between buffers in vim but it can also be used in the shell to quickly change directories.  
