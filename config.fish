@@ -16,7 +16,7 @@ function fish_prompt
 	set_color normal
 end
 
-set fish_greeting 'Discipline equals freedom.'\n'Start where you are, use what you have, do what you can.'
+set fish_greeting 'Discipline equals freedom.'\n'Start where you are, use what you have, do what you can.'\n'Don't prematurely optimise.'
 
 # Base16 Shell
 if status --is-interactive
