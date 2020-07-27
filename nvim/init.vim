@@ -16,15 +16,23 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntactic language support
+"" Toml and yaml
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
+"" Rust
 Plug 'rust-lang/rust.vim'
+"" Web stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-
-" Latex support
+"" Markdown support
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+"" Latex support
 Plug 'lervag/vimtex'
+
+" General writing support
+Plug 'reedes/vim-pencil'
 
 call plug#end()
 
@@ -94,6 +102,12 @@ let g:rustfmt_autosave = 1
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
+" markdown settings
+let g:vim_markdown_folding_disabled = 1
+
+" pencil settings
+let g:pencil#wrapModeDefault = 'soft'
+
 " ====================================================================================
 " Editor settings
 " ====================================================================================
@@ -112,8 +126,14 @@ set nu rnu
 set undodir=~/.vimdid
 set undofile
 
-" Enable spell checking on latex files
-autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
+" Auto start writing mode for relevant files
+function WritingMode()
+	hi SpellBad ctermfg=000
+	setlocal spell spelllang=en
+	:CocDisable
+	:Pencil
+endfunction
+autocmd BufRead,BufNewFile *.tex,*.md call WritingMode()
 
 " Indenting
 set shiftwidth=4
@@ -141,3 +161,4 @@ noremap <leader>s :Rg<CR>
 
 " <leader><leader> toggles between 2 most recently used buffers
 nnoremap <leader><leader> <c-^>
+
