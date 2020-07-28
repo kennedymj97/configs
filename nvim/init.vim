@@ -173,3 +173,5 @@ noremap <leader>s :Rg<CR>
 " <leader><leader> toggles between 2 most recently used buffers
 nnoremap <leader><leader> <c-^>
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
