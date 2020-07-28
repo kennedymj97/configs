@@ -126,14 +126,25 @@ set nu rnu
 set undodir=~/.vimdid
 set undofile
 
+
 " Auto start writing mode for relevant files
 function WritingMode()
 	hi SpellBad ctermfg=000
 	setlocal spell spelllang=en
-	:CocDisable
+	:silent! CocDisable
 	:Pencil
 endfunction
-autocmd BufRead,BufNewFile *.tex,*.md call WritingMode()
+
+autocmd BufRead,BufNewFile,BufEnter *.tex,*.md call WritingMode()
+
+" Auto start coding mode for relevant file
+function CodingMode()
+	:silent! CocEnable
+endfunction
+let writingFileTypes = ['latex', 'bibtex', 'plaintex', 'markdown']
+autocmd BufRead,BufNewFile,BufEnter * if index(writingFileTypes, &ft) < 0 
+									  \ | call CodingMode()
+
 
 " Indenting
 set shiftwidth=4
