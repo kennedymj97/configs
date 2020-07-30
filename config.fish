@@ -41,3 +41,9 @@ set PATH $HOME/.local/bin $PATH
 
 # add flamegraph to path
 set PATH $HOME/tools/FlameGraph $PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
