@@ -160,6 +160,25 @@ sudo apt install texlive-latex-extra latexmk
 
 [Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html) works great along with latex, allowing for reloading as changes are made to a pdf.
 
+### Python and Anaconda
+
+1. Go to the [conda downloads page](https://www.anaconda.com/products/individual) and copy the linux x86 download location.
+2. 
+```shell
+wget -P /tmp <copied link>
+sha256sum /tmp/Anaconda...
+```
+3. Check the sum matches [here](https://docs.anaconda.com/anaconda/install/hashes/lin-3-64/).
+4.
+```script
+bash /tmp/Anaconda...
+```
+5. Agree to the license terms and say no for conda init
+6. 
+```shell
+conda config --set auto_activate_base false
+```
+
 ## Editing Configs
 
 ### Vim and terminal colour scheme
