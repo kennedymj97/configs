@@ -145,6 +145,8 @@ let writingFileTypes = ['latex', 'bibtex', 'plaintex', 'markdown']
 autocmd BufRead,BufNewFile,BufEnter * if index(writingFileTypes, &ft) < 0 
 									  \ | call CodingMode()
 
+" Set file type to html for svelte files
+au! BufNewFile,BufRead *.svelte set ft=html
 
 " Indenting
 set shiftwidth=4
