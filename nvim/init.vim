@@ -24,7 +24,6 @@ Plug 'rust-lang/rust.vim'
 "" Web stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 "" Markdown support
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -177,3 +176,6 @@ nnoremap <leader><leader> <c-^>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+
+" Format with prettier
+nmap <leader>p :CocCommand prettier.formatFile<CR>
