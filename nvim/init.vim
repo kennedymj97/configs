@@ -107,6 +107,9 @@ let g:vim_markdown_folding_disabled = 1
 " pencil settings
 let g:pencil#wrapModeDefault = 'soft'
 
+" set fall back vimtex format see :help vimtex-tex-flavor
+let g:tex_flavor = 'latex'
+
 " ====================================================================================
 " Editor settings
 " ====================================================================================
