@@ -95,10 +95,10 @@ endif
 " =========================
 
 " rust settings
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " prettier settings
-let g:prettier#autoformat = 1
+let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 
 " markdown settings
