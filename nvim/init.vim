@@ -153,6 +153,7 @@ au! BufNewFile,BufRead *.svelte set ft=html
 " Indenting
 set shiftwidth=4
 set tabstop=4
+set expandtab
 set autoindent
 set smartindent
 
