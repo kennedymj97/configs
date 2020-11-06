@@ -64,7 +64,12 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=yes
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -155,15 +160,6 @@ set tabstop=4
 set expandtab
 set autoindent
 set smartindent
-
-" Cursor change to bar on insert
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
-" Set better timeoutlen
-set ttimeout
-set ttimeoutlen=100
-set timeoutlen=3000
 
 " WSL yank support
 " https://www.reddit.com/r/bashonubuntuonwindows/comments/be2q3l/how_do_i_copy_whole_text_from_vim_to_clipboard_at/el2vx7u/?utm_source=share&utm_medium=web2x
