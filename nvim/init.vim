@@ -13,7 +13,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 
 " Syntactic language support
 "" Toml and yaml
@@ -22,8 +22,7 @@ Plug 'stephpy/vim-yaml'
 "" Rust
 Plug 'rust-lang/rust.vim'
 "" Web stuff
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 "" Markdown support
 Plug 'godlygeek/tabular'
