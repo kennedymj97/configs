@@ -24,6 +24,7 @@ Plug 'rust-lang/rust.vim'
 "" Web stuff
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 "" Markdown support
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
