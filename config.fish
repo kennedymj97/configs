@@ -25,7 +25,7 @@ if status --is-interactive
 end
 
 # Launch nvim with vim also
-alias vim="nvim"
+# alias vim="nvim"
 
 # Start tmux on launch
 if status is-interactive

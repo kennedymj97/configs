@@ -128,7 +128,6 @@ set nu rnu
 set undodir=~/.vimdid
 set undofile
 
-
 " Auto start writing mode for relevant files
 function WritingMode()
 	hi SpellBad ctermfg=000
@@ -156,6 +155,15 @@ set tabstop=4
 set expandtab
 set autoindent
 set smartindent
+
+" Cursor change to bar on insert
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Set better timeoutlen
+set ttimeout
+set ttimeoutlen=100
+set timeoutlen=3000
 
 " WSL yank support
 " https://www.reddit.com/r/bashonubuntuonwindows/comments/be2q3l/how_do_i_copy_whole_text_from_vim_to_clipboard_at/el2vx7u/?utm_source=share&utm_medium=web2x
