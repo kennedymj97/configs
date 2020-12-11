@@ -10,7 +10,7 @@ Plug 'itchyny/lightline.vim'
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', {'commit': '4145f53f3d343c389ff974b1f1a68eeb39fba18b'}
 
 " Semantic language support
 Plug 'neoclide/coc.nvim'
