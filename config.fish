@@ -47,3 +47,8 @@ set PATH $HOME/tools/FlameGraph $PATH
 eval /home/matt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+function ssh_init
+    echo "Initializing new SSH agent..."
+    eval (ssh-agent -c)
+    ssh-add ~/.ssh/id_ed25519
+end

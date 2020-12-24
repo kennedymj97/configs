@@ -75,6 +75,24 @@ Restart the terminal and fish should be launched.
 
 [See the repo for further details.](https://github.com/fish-shell/fish-shell)
 
+### GitHub with SSH
+Create a new key-pair:
+```shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+Accept the default file location. Enter some secure passphrase when prompted.
+
+Copy the new key (make sure to copy the .pub file) to your [settings in GitHub](https://github.com/settings/keys).
+
+Edit ~/.ssh/config and add the following:
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+```
+
+Make sure to clone repos using ssh, and authentication on every push/pull will no longer be required.
+
 ### Adding configuration files
 If using bash then a $ needs to be added before the ().
 ```shell
