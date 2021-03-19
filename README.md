@@ -1,103 +1,57 @@
 # Configuration
-**Note: if you are not me make sure to change the name and email in the gitconfig!**
 
-## Initial Setup
+Install homebrew before proceeding.
 
-### WSL2
+### github
 
-Open powershell as administrator and run ([source](https://docs.microsoft.com/en-us/windows/wsl/install-win10)):
-```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-Restart the computer.
-```powershell
-wsl --set-default-version 2
-```
-
-[Go to the windows store](https://aka.ms/wslstore) and install Ubuntu.
-
-Launch Ubuntu and follow the installation instructions. Once complete run the following commands:
-
-```shell
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt install build-essential
-```
-
-The build essential package includes utilities needed for future installations.
-
-### Windows Terminal
-[Go to the microsoft store](https://aka.ms/windowsterminal) and install the windows terminal
-
-
-#### Change the default profile to WSL2
-After installing the windows terminal the default profile will probably be powershell. We want the default profile to be our WSL profile.
-
-1. Open the config json settings by pressing ctrl+, in the windows terminal.
-2. Scroll down until you find the profile with the name Ubuntu (or whatever linux distro you are using).
-3. Copy the guid.
-4. Scroll back up and replace the defaultProfile value to be the guid you just copied.
-
-#### Change the starting directory in WSL
-When using WSL2 it is [more performant to store files in the linux file system](https://docs.microsoft.com/en-us/windows/wsl/compare-versions). Therefore, it is best to set the starting directory at launch to be the linux home directory.  
-
-1. Open the config json settings by pressing ctrl+, in the windows terminal.
-2. Scroll down until you find the profile with the name Ubuntu (or whatever linux distro you are using).
-3. Add a new field "startingDirectory" to the profile with the value "//wsl$/<linux distro>/home/<linux username>". For example, mine is "//wsl$/Ubuntu/home/matt".
-
-#### Other settings
-I do not make use of the tabs provided by the windows terminal. I find tmux much better. As a result I change some settings to get rid of the tabs. I also like to make sure the terminal is maximised on launch and not have the terminal title displayed in the title bar.
-
-Add the following settings below defaultProfile:
-1. "alwaysShowTabs": false
-2. "showTabsInTitleBar": false
-3. "launchMode": "maximized"
-4. "showTerminalTitleInTitleBar": false
-
-If using vim the default keybindings will override some of the vim keybindings, therefore it is a good idea to remove all of the keybings set by default from the array.
-
-![windows terminal config](./images/windows-terminal-config.png)
-
-See here for further details.
+Create ssh key:
+https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 ### Fish
-Execute the following commads to change the dafult shell to fish:
 
 ```shell
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install fish
-chsh -s /usr/bin/fish
+brew install fish
+sudo vim /etc/shells
 ```
 
-Restart the terminal and fish should be launched.
+Add "/usr/local/bin/fish" on a new line at the end.
 
-[See the repo for further details.](https://github.com/fish-shell/fish-shell)
-
-### GitHub with SSH
-Create a new key-pair:
 ```shell
-ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-Accept the default file location. Enter some secure passphrase when prompted.
-
-Copy the new key (make sure to copy the .pub file) to your [settings in GitHub](https://github.com/settings/keys).
-
-Edit ~/.ssh/config and add the following:
-```
-Host github.com
-  Hostname ssh.github.com
-  Port 443
+chsh -s /usr/bin/local/fish
 ```
 
-Make sure to clone repos using ssh, and authentication on every push/pull will no longer be required.
+### Neovim
+
+```shell
+brew install --HEAD luajit
+brew install --HEAD neovim
+```
+
+### VS Code
+
+Install vs code from site.
+Launch vs code from apps and do cmd+shift+p and execute "Shell Command: install 'code' command in PATH
+Install one dark pro (binaryify)
+Install material icons (Philipp Kief)
+Install Neo Vim extension and add the binary path as /usr/local/bin/nvim (Alexey Svetliakov)
+Disable the "workbench.list.automaticKeyboardNavigation" setting
+
+### tmux
+
+brew install tmux
+
+### Styling
+I like to use [base16-shell](https://github.com/chriskempson/base16-shell) styling to style my terminal along with vim.
+
+```shell
+git clone git@github.com:chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
+Open a new shell and type base16_gruvbox-dark-hard (or another theme). A few lines in init.vim make vim use whatever style is set in the terminal.
 
 ### Adding configuration files
 If using bash then a $ needs to be added before the ().
 ```shell
-git clone https://github.com/kennedymj97/configs.git
-cd configs
 ln -s (pwd)/nvim/ ~/.config/
 ln -s (pwd)/tmux/ ~/.config/
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
@@ -105,97 +59,9 @@ rm ~/.gitconfig
 ln -s (pwd)/gitconfig ~/.gitconfig
 rm ~/.config/fish/config.fish
 ln -s (pwd)/config.fish ~/.config/fish/config.fish
+ln -s (pwd)/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ```
 On compeltion restart the terminal.
-
-### Neovim
-If you try to install neovim through the package manager an old version is installed which is not compatible with some of the plugins. To install an up to date version of neovim ([source](https://github.com/neovim/neovim/wiki/Installing-Neovim):
-
-```shell
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod +x nvim.appimage
-sudo mv ./nvim.appimage /usr/bin/nvim
-```
-
-#### Vim Plugged
-I like to use vim plugged to manage my plugins for vim. Installation instruction follow ([source](https://github.com/neovim/neovim/wiki/Installing-Neovim)):
-```shell
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-mkdir ~/.local/share/nvim/site/plugged
-```
-
-#### Installing the plugins
-##### Node.js
-My vim setup makes use of [coc.nvim](https://github.com/neoclide/coc.nvim). To use this node.js has to be installed.
-
-1. Go to the [node website](https://www.nodejs.org/en/) and check the latest stable version.
-2. Go to the [nodesource repo](https://github.com/nodesource/distributions#deb) and follow instructions to install the latest version.
-
-Install the plugins by launching nvim and typing :PlugInstall.
-
-#### Fuzzy finder (fzf)
-I mostly use [fzf](https://github.com/neoclide/coc.nvim) to open files and move between buffers in vim but it can also be used in the shell to quickly change directories.  
-
-```shell
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-```
-
-I also use [ripgrep](https://github.com/BurntSushi/ripgrep) to enable searching for files based on the contents rather than the filename. It requires rust to be installed. To install rust:
-
-1. Go to the [install page](https://www.rust-lang.org/tools/install) on the rust site and follow the instructions.
-
-Once rust is installed ripgrep can then be installed:
-
-```shell
-cargo install ripgrep
-```
-
-### Styling
-I like to use [base16-shell](https://github.com/chriskempson/base16-shell) styling to style my terminal along with vim.
-
-```shell
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-```
-
-Open a new shell and type base16_gruvbox-dark-hard (or another theme). A few lines in init.vim make vim use whatever style is set in the terminal.
-
-## Languages
-The following are further steps required to get the support for different languages.
-
-### Rust
-#### Rust analyzer for coc.nvim
-```shell
-cargo install cargo-watch
-```
-Open nvim and run :CocInstall coc-rust-analyzer
-
-### Latex
-
-```shell
-sudo apt install texlive-latex-extra latexmk
-```
-
-[Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html) works great along with latex, allowing for reloading as changes are made to a pdf.
-
-### Python and Anaconda
-
-1. Go to the [conda downloads page](https://www.anaconda.com/products/individual) and copy the linux x86 download location.
-2. 
-```shell
-wget -P /tmp <copied link>
-sha256sum /tmp/Anaconda...
-```
-3. Check the sum matches [here](https://docs.anaconda.com/anaconda/install/hashes/lin-3-64/).
-4.
-```script
-bash /tmp/Anaconda...
-```
-5. Agree to the license terms and say no for conda init
-6. 
-```shell
-conda config --set auto_activate_base false
-```
 
 ## Editing Configs
 
