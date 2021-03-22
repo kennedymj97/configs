@@ -32,9 +32,3 @@ if status is-interactive
 and not set -q TMUX
     exec tmux
 end
-
-function ssh_init
-    echo "Initializing new SSH agent..."
-    eval (ssh-agent -c)
-    ssh-add ~/.ssh/id_ed25519
-end
