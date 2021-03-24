@@ -81,6 +81,8 @@ plugins=(
   git
   kubectl
   tmux
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 ZSH_TMUX_AUTOSTART=true
