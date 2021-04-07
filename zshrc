@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export FZF_DEFAULT_COMMAND='fd --type file --hidden'
+export FZF_DEFAULT_COMMAND='fd --type file'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
