@@ -2,7 +2,6 @@
 
 Before proceeding install homebrew (can be done on either Linux or MacOS now)
 
-## Apps to install
 1. Alacritty
     1. brew install --cask alacritty
 2. vscode
