@@ -7,6 +7,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
+" Syntax highlighting and indentation
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 " ====================================================================================
 " Plugin settings
