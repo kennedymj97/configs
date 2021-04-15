@@ -10,6 +10,11 @@ Plug 'itchyny/lightline.vim'
 " Syntax highlighting and indentation
 Plug 'sheerun/vim-polyglot'
 
+" Fuzzy finding
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'do' { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 " ====================================================================================
 " Plugin settings
@@ -18,6 +23,20 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+" ====================================================================================
+" Keybindings
+" ====================================================================================
+let mapleader = "\<Space>"
+
+" switch between last two buffers
+nnoremap <leader><leader> <c-^>
+
+" fzf
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
+noremap <leader>s :Rg
+
+
 " ====================================================================================
 " Editor settings
 " ====================================================================================
