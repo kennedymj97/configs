@@ -12,7 +12,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Fuzzy finding
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'do' { -> fzf#install() }}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
