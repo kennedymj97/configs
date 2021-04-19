@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
 
+export EDITOR="nvim"
+
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
