@@ -34,7 +34,7 @@ nnoremap <leader><leader> <c-^>
 " fzf
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
-noremap <leader>s :Rg
+noremap <leader>s :Rg<CR>
 
 
 " ====================================================================================
