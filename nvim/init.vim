@@ -64,3 +64,6 @@ set expandtab
 
 " Use clipboard
 set clipboard+=unnamedplus
+
+" Column at 120 characters
+set colorcolumn=120
