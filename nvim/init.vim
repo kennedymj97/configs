@@ -98,4 +98,10 @@ local servers = { "gopls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = false,
+    virtual_text = false,
+  }
+)
 EOF
