@@ -15,6 +15,10 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 
+" LSP and Tree Sitter
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 " ====================================================================================
 " Plugin settings
@@ -34,7 +38,7 @@ nnoremap <leader><leader> <c-^>
 " fzf
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
-noremap <leader>s :Rg
+noremap <leader>s :Rg<CR>
 
 
 " ====================================================================================
@@ -64,3 +68,56 @@ set expandtab
 
 " Use clipboard
 set clipboard+=unnamedplus
+
+" Column at 120 characters
+set colorcolumn=120
+
+" ====================================================================================
+" LSP and Tree Sitter Config
+" ====================================================================================
+lua << EOF
+--
+-- LSP
+--
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys 
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+
+end
+
+local servers = { "gopls" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup { on_attach = on_attach }
+end
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = false,
+    virtual_text = false,
+  }
+)
+
+--
+-- Tree Sitter
+-- 
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)
